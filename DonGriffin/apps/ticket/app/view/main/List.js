@@ -12,13 +12,15 @@ Ext.define('Ticket.view.main.List', {
 
     title: 'Tickets',
 
-    store: {
-        type: 'tickets'
+    bind: {
+        store: '{tickets}'
     },
 
+    plugins: 'cellediting',
+    
     columns: [
         { text: 'Id',  dataIndex: 'id', width: 50 },
-        { text: 'Summary', dataIndex: 'summary', flex: 1 },
+        { text: 'Summary', dataIndex: 'summary', editor: 'textfield', flex: 1 },
         {
             xtype: 'glyphcolumn',
             width: 40,

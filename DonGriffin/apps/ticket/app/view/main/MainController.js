@@ -32,7 +32,8 @@ Ext.define('Ticket.view.main.MainController', {
     },
     
     onSaveClick: function () {
-        debugger;
-        this.ticketWindow.destroy();
+        var win = this.ticketWindow;
+        win.getSession().save();
+        win.destroy();
     }
 });

@@ -20,6 +20,7 @@ Ext.define('Ticket.view.main.Main', {
 
     controller: 'main',
     viewModel: 'main',
+    session: true,
 
     ui: 'navigation',
 

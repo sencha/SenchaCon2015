@@ -39,6 +39,33 @@ Ext.define('Ticket.data.Sim', {
                     fullName: "Ted (Theodore) Logan",
                     pic: "http://images2.fanpop.com/images/photos/2800000/Ted-Theodore-Logan-bill-and-ted-2892205-319-458.jpg"
                 }]
+            },
+            
+            '~api/comment': {
+                type: 'json',
+                data: [{
+                    "id": 100,
+                    "text": "This bug report is totally bogus!",
+                    "date": "Oct 2",
+                    "creator": {
+                        "id": 2,
+                        "name": "Bill",
+                        "fullName": "Bill S. Preston, Esq.",
+                        "pic": "http://images2.fanpop.com/images/photos/2800000/Bill-S-Preston-Esq-bill-and-ted-2892235-333-500.jpg"
+                    },
+                    "ticketId": 10
+                }, {
+                    "id": 101,
+                    "text": "No way! It is a most excellent bug report!",
+                    "date": "Oct 7",
+                    "creator": {
+                        "id": 3,
+                        "name": "Ted",
+                        "fullName": "Ted (Theodore) Logan",
+                        "pic": "http://images2.fanpop.com/images/photos/2800000/Ted-Theodore-Logan-bill-and-ted-2892205-319-458.jpg"
+                    },
+                    "ticketId": 10
+                }]
             }
         });
     }
