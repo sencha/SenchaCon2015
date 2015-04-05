@@ -9,8 +9,7 @@ Ext.application({
     extend: 'Ticket.Application',
 
     requires: [
-        'Ticket.data.Sim',
-        'Ticket.view.main.Main'
+        'Ticket.*'
     ],
 
     // The name of the initial view to create. With the classic toolkit this class
