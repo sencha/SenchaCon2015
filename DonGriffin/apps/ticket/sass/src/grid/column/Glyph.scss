@@ -1,0 +1,22 @@
+.#{$prefix}grid-cell-inner-glyph-column {
+    padding: $grid-actioncolumn-cell-padding;
+
+    @if $grid-no-row-lines-show-focus-border {
+        .#{$prefix}grid-no-row-lines .#{$prefix}grid-row-focused & {
+            padding-top: top($grid-actioncolumn-cell-padding) - $grid-row-cell-border-width;
+            padding-bottom: bottom($grid-actioncolumn-cell-padding) - $grid-row-cell-border-width;
+        }
+    }
+}
+
+.#{$prefix}glyph-column-item.#{$prefix}item-disabled {
+    @include opacity($grid-actioncolumn-icon-opacity-disabled);
+}
+
+.#{$prefix}glyph-column-item {
+    height: $grid-actioncolumn-icon-height;
+    width: $grid-actioncolumn-icon-width;
+    cursor: $grid-actioncolumn-icon-cursor;
+    font-size: 130%;
+    color: #444;
+}
