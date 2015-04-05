@@ -34,7 +34,7 @@ Ext.define('Ticket.view.ticket.Form', {
             }
         }, {
             xtype: 'textarea',
-            height: 150,
+            height: 110,
             fieldLabel: 'Description',
             bind: {
                 value: '{ticket.description}'
@@ -56,17 +56,16 @@ Ext.define('Ticket.view.ticket.Form', {
                     xtype: 'templatecolumn',
                     tpl: ['<img style="float:left; padding-right: 10px;" height="64" ', 'src="{[values.creator.pic]}" ', 'alt="{[values.creator.fullName]}" ', 'data-qtip="{[values.creator.fullName]}">', '<div style="float:left">{text}</div>', '<div style="float:right; color:#bbb">{date}</div>']
                 }, {
-                    xtype: 'actioncolumn',
-                    width: 30,
-                    items: [{
-                        iconCls: 'delete-icon',
-                        handler: 'onRemoveCommentClick'
-                    }]
+                    xtype: 'glyphcolumn',
+                    width: 40,
+                    align: 'right',
+                    items: ['fa-remove']
                 }],
                 hideHeaders: true
             }, {
                 xtype: 'textarea',
                 emptyText: 'Comment Text',
+                margin: '10 0 5 0',
                 reference: 'newComment'
             }, {
                 xtype: 'container',

@@ -8,8 +8,8 @@ Ext.define('Ticket.view.ticket.Window', {
         title: 'Ticket {ticket.id}'
     },
     
-    width: 700,
-    height: 500,
+    width: 800,
+    height: 595,
 
     items: [{
         xtype: 'ticketform'

@@ -6,6 +6,8 @@ Ext.define('Ticket.view.main.List', {
     xtype: 'mainlist',
 
     requires: [
+        'Ext.grid.plugin.CellEditing',
+
         'Ticket.store.Tickets',
         'Ticket.grid.column.Glyph'
     ],
@@ -25,7 +27,7 @@ Ext.define('Ticket.view.main.List', {
             xtype: 'glyphcolumn',
             width: 40,
             align: 'center',
-            items: ['fa-edit'],
+            items: ['fa-edit' ],
             handler: 'onEditRow'
         }
     ]

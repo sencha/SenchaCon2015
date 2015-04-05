@@ -18,9 +18,11 @@ Ext.define('Ticket.view.main.MainController', {
             xtype: 'ticketwindow',
             modal: true,
             
+            // Create a child session
             session: {
-                autoDestroy: true
+                autoDestroy: true // destroy with the view
             },
+            
             viewModel: {
                 links: {
                     ticket: info.record
