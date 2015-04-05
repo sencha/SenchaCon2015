@@ -17,6 +17,7 @@ Ext.define('Ticket.view.main.MainController', {
         this.ticketWindow = view.add({
             xtype: 'ticketwindow',
             modal: true,
+            bodyPadding: 0,
             
             // Create a child session
             session: {

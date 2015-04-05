@@ -9,6 +9,7 @@ Ext.define('Ticket.view.ticket.Form', {
 
     layout: 'column',
     bodyPadding: 10,
+    scrollable: true,
 
     viewModel: {
         stores: {
