@@ -22,9 +22,5 @@ Ext.define('Ticket.view.ticket.FormController', {
     
     onDeleteComment: function (view, info) {
         info.record.drop();
-    },
-
-    onRemoveCommentClick: function(view, rowIdx, colIdx, actionItem, e, rec) {
-        this.getViewModel().get('ticket').comments().remove(rec);
     }
 });
