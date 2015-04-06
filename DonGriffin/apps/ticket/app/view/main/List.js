@@ -20,6 +20,11 @@ Ext.define('Ticket.view.main.List', {
 
     plugins: 'cellediting',
     
+    tools: [{
+        type: 'gear',
+        handler: 'onShowChanges'
+    }],
+    
     columns: [
         { text: 'Id',  dataIndex: 'id', width: 50 },
         { text: 'Summary', dataIndex: 'summary', editor: 'textfield', flex: 1 },

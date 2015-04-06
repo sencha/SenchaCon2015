@@ -10,7 +10,6 @@ Ext.define('Ticket.view.ticket.Window', {
     
     width: 800,
     height: 595,
-    bodyPadding: 0,
 
     items: [{
         xtype: 'ticketform'

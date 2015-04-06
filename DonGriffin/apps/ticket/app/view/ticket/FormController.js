@@ -2,16 +2,11 @@ Ext.define('Ticket.view.ticket.FormController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.ticketform',
 
-    onSaveClick: function() {
-        this.getSession().save();
-        this.getView().destroy();
-    },
-
     onAddCommentClick: function() {
         var ticket = this.getViewModel().get('ticket'),
             d = new Date(),
             field = this.lookupReference('newComment'),
-            comment = new Fiddle.model.Comment({
+            comment = new Ticket.model.Comment({
             	creatorId: 1,
             	text: field.getValue(),
             	date: d.getDate() + ' ' + Ext.Date.getShortMonthName(d.getMonth())
@@ -25,6 +20,10 @@ Ext.define('Ticket.view.ticket.FormController', {
         field.setValue('');
     },
     
+    onDeleteComment: function (view, info) {
+        info.record.drop();
+    },
+
     onRemoveCommentClick: function(view, rowIdx, colIdx, actionItem, e, rec) {
         this.getViewModel().get('ticket').comments().remove(rec);
     }

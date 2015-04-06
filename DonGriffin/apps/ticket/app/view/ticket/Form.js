@@ -55,12 +55,20 @@ Ext.define('Ticket.view.ticket.Form', {
                 columns: [{
                     flex: 1,
                     xtype: 'templatecolumn',
-                    tpl: ['<img style="float:left; padding-right: 10px;" height="64" ', 'src="{[values.creator.pic]}" ', 'alt="{[values.creator.fullName]}" ', 'data-qtip="{[values.creator.fullName]}">', '<div style="float:left">{text}</div>', '<div style="float:right; color:#bbb">{date}</div>']
+                    tpl: [
+                        '<img style="float:left; padding-right: 10px;" height="64" ',
+                        'src="{[values.creator.pic]}" ',
+                        'alt="{[values.creator.fullName]}" ',
+                        'data-qtip="{[values.creator.fullName]}">',
+                        '<div style="float:left">{text}</div>',
+                        '<div style="float:right; color:#bbb">{date}</div>'
+                    ]
                 }, {
                     xtype: 'glyphcolumn',
                     width: 40,
-                    align: 'right',
-                    items: ['fa-remove']
+                    align: 'center',
+                    items: ['fa-trash-o'],
+                    handler: 'onDeleteComment'
                 }],
                 hideHeaders: true
             }, {
@@ -97,22 +105,14 @@ Ext.define('Ticket.view.ticket.Form', {
             xtype: 'displayfield',
             fieldLabel: '<b>People</b>'
         }, {
-            xtype: 'combobox',
+            xtype: 'textfield',
             fieldLabel: 'Assignee',
-            editable: false,
-            forceSelection: true,
-            displayField: 'name',
-            valueField: 'id',
-            bind: {
-                selection: '{ticket.assignee}',
-                store: '{users}'
-            }
+            bind: '{ticket.assignee.fullName}'
         }, {
             xtype: 'displayfield',
             fieldLabel: 'Reporter',
-            bind: {
-                value: '{ticket.reporter.name}'
-            }
+            bind: '{ticket.reporter.fullName}',
+            qtip: 'Hello'
         }]
     }]
 });

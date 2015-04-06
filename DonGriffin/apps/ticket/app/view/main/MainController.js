@@ -19,12 +19,15 @@ Ext.define('Ticket.view.main.MainController', {
             modal: true,
             bodyPadding: 0,
             
-            // Create a child session
+            // Create a child session ...
             session: {
-                autoDestroy: true // destroy with the view
+                autoDestroy: true // ... and destroy it with the view
             },
             
             viewModel: {
+                // Pass the selected record to the child session as "ticket".
+                // Because the child VM also has a child session, the record
+                // will not be shared directly.
                 links: {
                     ticket: info.record
                 }
@@ -36,7 +39,37 @@ Ext.define('Ticket.view.main.MainController', {
     
     onSaveClick: function () {
         var win = this.ticketWindow;
+
+        // Copy changes made back to the parent session.
         win.getSession().save();
+
+        // To save to a server instead:
+        //var batch = win.getSession().getSaveBatch();
+        //batch.start();
+        
         win.destroy();
+    },
+    
+    onShowChanges: function () {
+        var changes = this.getSession().getChanges();
+
+        if (changes) {
+            new Ext.window.Window({
+                autoShow: true,
+                title: 'Session Changes',
+                modal: true,
+                width: 600,
+                height: 400,
+                layout: 'fit',
+                items: {
+                    xtype: 'component',
+                    scrollable: true,
+                    style: 'font-size: 22px; line-height: 1; padding-left: 6px',
+                    html: '<pre>' + JSON.stringify(changes, null, 2) + '</pre>'
+                }
+            });
+        } else {
+            Ext.Msg.alert('No Changes', 'The session has no changes.');
+        }
     }
 });

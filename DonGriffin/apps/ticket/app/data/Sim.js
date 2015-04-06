@@ -27,7 +27,7 @@ Ext.define('Ticket.data.Sim', {
                     id: 1,
                     name: "Don",
                     fullName: "Don Griffin",
-                    pic: ""
+                    pic: "http://www.gravatar.com/avatar/b5e4b46ad81485091e2333b14bbb330a.jpg?s=64"
                 }, {
                     id: 2,
                     name: "Bill",

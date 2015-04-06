@@ -80,9 +80,6 @@ Ext.define('Ticket.view.main.Main', {
         title: 'Home',
         iconCls: 'fa-home',
         items: [{
-            html: "The following grid shares a store with the modern version's grid as well!",
-            margin: '0 0 10 0'
-        },{
             xtype: 'mainlist'
         }]
     }, {
