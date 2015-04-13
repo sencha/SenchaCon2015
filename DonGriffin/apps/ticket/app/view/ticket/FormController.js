@@ -6,13 +6,16 @@ Ext.define('Ticket.view.ticket.FormController', {
         var ticket = this.getViewModel().get('ticket'),
             d = new Date(),
             field = this.lookupReference('newComment'),
-            comment = new Ticket.model.Comment({
-            	creatorId: 1,
-            	text: field.getValue(),
-            	date: d.getDate() + ' ' + Ext.Date.getShortMonthName(d.getMonth())
-        	}, this.getSession());
+            comment;
         
-        // Force the creator to be resolved, should have a better way to do this
+        comment = new Ticket.model.Comment({
+            creatorId: 1,
+            text: field.getValue(),
+            date: d.getDate() + ' ' + Ext.Date.getShortMonthName(d.getMonth())
+        }, this.getSession());
+
+        // Ensure the creator record instance is immediately available
+        // for rendering.
         comment.setCreator(comment.getCreator());
         
         ticket.comments().add(comment);
